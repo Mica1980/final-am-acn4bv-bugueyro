@@ -1,0 +1,25 @@
+<resources>
+
+    <string name="app_name">Medisoft</string>
+
+    <!--LOGIN -->
+    <string name="logo">logo</string>
+    <string name="login_usuario">Usuario</string>
+    <string name="login_contrasena">Contraseña</string>
+    <string name="iniciar_sesion">Iniciar Sesión</string>
+    <string name="registrarse">Registrarse</string>
+    <string name="olvide_usuario_contrasena">Olvidé mi Usuario y/o Contraseña</string>
+
+    <!-- Textos de la pantalla de Registro -->
+    <string name="registro_nombre">Nombre</string>
+    <string name="registro_apellido">Apellido</string>
+    <string name="registro_email">Email</string>
+    <string name="crear_cuenta">Crear</string>
+    <string name="cerrar">Cerrar</string>
+
+    <!-- Textos de la pantalla de Creación de Usuario -->
+    <string name="nuevo_usuario">Escriba un nuevo Usuario</string>
+    <string name="repetir_usuario">Repetir nuevo Usuario</string>
+
+
+</resources>
