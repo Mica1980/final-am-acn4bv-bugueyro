@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "1068803595080",
+    "firebase_url": "https://medisoft-9bbb5-default-rtdb.firebaseio.com",
+    "project_id": "medisoft-9bbb5",
+    "storage_bucket": "medisoft-9bbb5.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1068803595080:android:00d6db155f6f0b7d17b17d",
+        "android_client_info": {
+          "package_name": "com.example.medisoft"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDBdRigkzVsvZv3KzJHmEOXKjEbDL-WIho"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

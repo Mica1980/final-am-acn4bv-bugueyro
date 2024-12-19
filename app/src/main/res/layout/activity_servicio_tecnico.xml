@@ -1,0 +1,132 @@
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryLight"
+    android:padding="16dp">
+
+    <!-- Botón para cerrar sesión -->
+
+    <!-- Botón para retroceder -->
+
+    <!-- Título de la pantalla -->
+
+    <!-- Campo para Nombre del Cliente -->
+
+    <Button
+        android:id="@+id/btnCerrarSesion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#F44336"
+        android:text="Cerrar Sesión"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/btnBack"
+        android:layout_width="57dp"
+        android:layout_height="48dp"
+        android:contentDescription="Retroceder"
+        android:src="@drawable/retroceso"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.024" />
+
+    <!-- Campo para Email -->
+
+    <!-- Campo para Teléfono -->
+
+    <!-- Campo para Descripción del Problema -->
+
+    <!-- Botón para Enviar el Formulario -->
+
+    <TextView
+        android:id="@+id/txtTitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="104dp"
+        android:text="Formulario de Servicio Técnico"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnCerrarSesion" />
+
+    <EditText
+        android:id="@+id/edtNombreCliente"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:hint="Nombre del Cliente"
+        android:inputType="textPersonName"
+        android:padding="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtTitulo" />
+
+    <EditText
+        android:id="@+id/edtEmailCliente"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:hint="Correo Electrónico"
+        android:inputType="textEmailAddress"
+        android:padding="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtNombreCliente" />
+
+    <EditText
+        android:id="@+id/edtTelefonoCliente"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:hint="Teléfono"
+        android:inputType="phone"
+        android:padding="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtEmailCliente" />
+
+    <EditText
+        android:id="@+id/edtDescripcionProblema"
+        android:layout_width="0dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="36dp"
+        android:gravity="top"
+        android:hint="Describa el problema"
+        android:inputType="textMultiLine"
+        android:padding="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtTelefonoCliente" />
+
+    <Button
+        android:id="@+id/btnEnviar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#1E88E5"
+        android:text="Enviar"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtDescripcionProblema"
+        app:layout_constraintVertical_bias="0.485" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

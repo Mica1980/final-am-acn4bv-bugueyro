@@ -2,8 +2,8 @@
 
     <string name="app_name">Medisoft</string>
 
-    <!--LOGIN -->
-    <string name="logo">logo</string>
+    <!-- LOGIN -->
+    <string name="logo">Logo</string>
     <string name="login_usuario">Usuario</string>
     <string name="login_contrasena">Contraseña</string>
     <string name="iniciar_sesion">Iniciar Sesión</string>
@@ -13,7 +13,7 @@
     <!-- Textos de la pantalla de Registro -->
     <string name="registro_nombre">Nombre</string>
     <string name="registro_apellido">Apellido</string>
-    <string name="registro_email">Email</string>
+    <string name="registro_email">Correo electrónico</string>
     <string name="crear_cuenta">Crear</string>
     <string name="cerrar">Cerrar</string>
 
@@ -21,5 +21,65 @@
     <string name="nuevo_usuario">Escriba un nuevo Usuario</string>
     <string name="repetir_usuario">Repetir nuevo Usuario</string>
 
+    <!-- Textos de la pantalla de Confirmación de Contraseña -->
+    <string name="email_hint">Correo electrónico</string>
+    <string name="password_hint">Contraseña</string>
+    <string name="confirm_password_hint">Confirmar contraseña</string>
+    <string name="register_button_text">Registrar</string>
+    <string name="close_button_text">Cerrar</string>
 
+    <string name="factura">Factura</string>
+    <string name="servicio_tecnico">Servicio Técnico</string>
+    <string name="llamar">Llamar</string>
+
+
+    <string name="back">Volver</string>
+    <string name="galicia">Galicia</string>
+    <string name="rapipago">RapiPago</string>
+    <string name="pagofacil">PagoFácil</string>
+
+
+    <string name="seleccionar_tarjeta">Seleccionar Tarjeta</string>
+    <string-array name="tarjetas">
+        <item>Visa</item>
+        <item>MasterCard</item>
+        <item>American Express</item>
+        <item>Cabal</item>
+    </string-array>
+
+
+    <string name="tablayout_description">Sección de pestañas para facturas y pagos</string>
+    <string name="recyclerview_description">Listado de facturas</string>
+    <string name="txt_cliente_description">Información del cliente</string>
+    <string name="txt_saldo_pendiente_description">Saldo pendiente del cliente</string>
+    <string name="txt_vencimiento_description">Fecha de vencimiento de la factura</string>
+    <string name="btn_pagar">Pagar</string>
+
+
+    <string name="transferencia_titulo">Transferencia Bancaria</string>
+    <string name="transferencia_instrucciones_titulo">INSTRUCCIONES PARA PAGO</string>
+    <string name="transferencia_instruccion_1">Realiza la transferencia al CBU especificado</string>
+    <string name="transferencia_instruccion_2">Indica el CUIL del titular de la cuenta</string>
+    <string name="transferencia_instruccion_3">Guarda el comprobante de pago</string>
+    <string name="transferencia_cbu">CBU: 123456789000000</string>
+    <string name="transferencia_empresa">Empresa: Medisoft</string>
+    <string name="transferencia_cuil">CUIL: 27-22220333-2</string>
+    <string name="transferencia_icon_description">Icono de instrucciones para transferencia bancaria</string>
+    <string name="guardar_ticket_mensaje">Realiza el pago y guarda el ticket como comprobante de pago</string>
+
+
+    <string name="rapipago_instrucciones_titulo">INSTRUCCIONES PARA PAGO</string>
+    <string name="rapipago_instruccion_1">Acércate a una Sucursal de Rapipago</string>
+    <string name="rapipago_instruccion_2">Menciona el CUIL del titular de la cuenta</string>
+    <string name="rapipago_instruccion_3">Informa el importe que deseas abonar y listo</string>
+    <string name="rapipago_titulo">Rapipago</string>
+    <string name="sucursal_icon_description">Icono de sucursal</string>
+    <string name="cuil_icon_description">Icono de CUIL</string>
+    <string name="dinero_icon_description">Icono de dinero</string>
+
+
+    <string name="cierre_gracias">¡Gracias por usar Medisoft!</string>
+    <string name="cierre_mensaje">Si necesitas ayuda, contáctanos en medisoft@gmail.com</string>
+    <string name="cierre_cerrar_sesion">Cerrar Sesión</string>
+    <string name="cierre_salir">Salir</string>
 </resources>

@@ -1,0 +1,64 @@
+package com.example.medisoft;
+
+public class ServicioMensaje {
+    private String id;
+    private String nombre;
+    private String email;
+    private String telefono;
+    private String descripcion;
+
+    public ServicioMensaje() {
+        // Constructor vacío requerido para Firebase
+    }
+
+    public ServicioMensaje(String id, String nombre, String email, String telefono, String descripcion) {
+        this.id = id;
+        this.nombre = nombre;
+        this.email = email;
+        this.telefono = telefono;
+        this.descripcion = descripcion;
+    }
+
+    // Getters y Setters
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+}
+
+

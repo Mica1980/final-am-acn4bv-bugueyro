@@ -10,17 +10,15 @@
     android:background="@drawable/fondo1"
     tools:context=".MainActivity">
 
-
+    <!-- Logo centrado en la pantalla -->
     <ImageView
         android:id="@+id/logo"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="4dp"
         android:src="@drawable/medisoft"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.54"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

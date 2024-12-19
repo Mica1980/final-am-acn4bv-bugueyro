@@ -1,0 +1,224 @@
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryLight"
+    tools:context=".TarjetaActivity">
+
+    <!-- Botón para retroceder -->
+
+    <!-- Título de la página -->
+
+    <!-- Campo de Cuenta -->
+    <ImageView
+        android:id="@+id/btnBack"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="@string/back"
+        android:src="@drawable/retroceso"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Pago con Tarjeta"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.306"
+        app:layout_constraintStart_toEndOf="@id/btnBack"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtCuenta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cuenta de:"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/txtTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp" />
+
+    <EditText
+        android:id="@+id/edtCuenta"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:background="@android:drawable/editbox_background_normal"
+        android:enabled="false"
+        android:hint="123456"
+        android:padding="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtCuenta" />
+
+    <!-- Campo de Saldo -->
+    <TextView
+        android:id="@+id/txtSaldo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Saldo:"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/edtCuenta"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp" />
+
+    <EditText
+        android:id="@+id/edtSaldo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:background="@android:drawable/editbox_background_normal"
+        android:enabled="false"
+        android:hint="$100.000"
+        android:padding="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtSaldo" />
+
+    <!-- Campo de Número de tarjeta -->
+
+    <!-- Checkbox para pago parcial -->
+
+    <!-- Campo de Importe a pagar -->
+    <EditText
+        android:id="@+id/edtNumeroTarjeta"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="20dp"
+        android:background="@android:drawable/editbox_background_normal"
+        android:hint="Número de tarjeta"
+        android:padding="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtSaldo" />
+
+    <CheckBox
+        android:id="@+id/chkPagoParcial"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Realizar pago parcial"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.065"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/edtNumeroTarjeta" />
+
+    <EditText
+        android:id="@+id/edtImportePagar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@android:drawable/editbox_background_normal"
+        android:enabled="false"
+        android:hint="Importe a pagar"
+        android:padding="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/chkPagoParcial" />
+
+    <!-- Spinner para seleccionar tarjeta -->
+    <Spinner
+        android:id="@+id/spinnerTarjeta"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        android:entries="@array/tarjetas"
+        android:minHeight="48dp"
+        android:padding="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/edtImportePagar" />
+
+    <!-- Campo de Nombre en la tarjeta -->
+
+    <!-- Campo de Vencimiento -->
+    <EditText
+        android:id="@+id/edtNombreTarjeta"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="4dp"
+        android:background="@android:drawable/editbox_background_normal"
+        android:hint="Nombre en la tarjeta"
+        android:padding="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/spinnerTarjeta" />
+
+    <EditText
+        android:id="@+id/edtVencimientoTarjeta"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:drawable/editbox_background_normal"
+        android:hint="Vencimiento (MM/AA)"
+        android:padding="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/edtNombreTarjeta" />
+
+    <!-- Campo de Código de seguridad -->
+    <EditText
+        android:id="@+id/edtCodigoSeguridad"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@android:drawable/editbox_background_normal"
+        android:hint="Código de seguridad (CVV)"
+        android:padding="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/edtVencimientoTarjeta" />
+
+    <!-- Botones de Cancelar y Pagar -->
+
+    <Button
+        android:id="@+id/btnCancelar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
+        android:backgroundTint="#9E9E9E"
+        android:text="Cancelar"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btnPagar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/edtCodigoSeguridad"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/btnPagar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="#1E88E5"
+        android:text="Pagar"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btnCancelar"
+        app:layout_constraintTop_toBottomOf="@id/edtCodigoSeguridad"
+        app:layout_constraintVertical_bias="0.0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+

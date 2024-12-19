@@ -1,0 +1,82 @@
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CierreActivity"
+    android:background="@color/colorPrimaryLight">
+
+    <!-- Logo de la aplicación -->
+    <ImageView
+        android:id="@+id/logoApp"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="48dp"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Título de agradecimiento -->
+    <TextView
+        android:id="@+id/txtGracias"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="¡Gracias por usar Medisoft!"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/logoApp" />
+
+    <!-- Mensaje de cierre -->
+
+    <!-- Botón de cerrar sesión -->
+
+    <!-- Botón de salir -->
+
+    <TextView
+        android:id="@+id/txtMensaje"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:gravity="center"
+        android:text="Si necesitas ayuda, contáctanos en medisoft@gmail.com"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtGracias" />
+
+    <Button
+        android:id="@+id/btnCerrarSesion"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="28dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:text="Cerrar Sesión"
+        android:textColor="@android:color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtMensaje" />
+
+    <Button
+        android:id="@+id/btnSalir"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:backgroundTint="@color/colorPrimaryGris"
+        android:text="Salir"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnCerrarSesion"
+        app:layout_constraintVertical_bias="0.059" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+
