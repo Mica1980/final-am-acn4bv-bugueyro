@@ -16,17 +16,18 @@ public class FacturaAdapter extends RecyclerView.Adapter<FacturaAdapter.FacturaV
 
     private final List<Factura> facturaList;
     private final OnFacturaClickListener listener;
+    private final boolean esFacturaPaga;
 
-    public FacturaAdapter(List<Factura> facturaList, OnFacturaClickListener listener) {
+    public FacturaAdapter(List<Factura> facturaList, OnFacturaClickListener listener, boolean esFacturaPaga) {
         this.facturaList = facturaList;
         this.listener = listener;
+        this.esFacturaPaga = esFacturaPaga;
     }
 
     @NonNull
     @Override
     public FacturaViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        // Inflar el layout "activity_factura.xml"
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_factura, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_factura_paga, parent, false);
         return new FacturaViewHolder(view);
     }
 
@@ -34,15 +35,22 @@ public class FacturaAdapter extends RecyclerView.Adapter<FacturaAdapter.FacturaV
     public void onBindViewHolder(@NonNull FacturaViewHolder holder, int position) {
         Factura factura = facturaList.get(position);
 
-        // Configurar vistas
-        holder.txtCuenta.setText("Número de cuenta: " + factura.getNombre());
-        holder.txtMonto.setText("Monto: " + factura.getMonto());
-        holder.txtFecha.setText("Fecha de vencimiento: " + factura.getFechaVencimiento());
+        if (factura != null) {
+            holder.txtCuenta.setText("Cuenta: " + factura.getNombre());
+            holder.txtMonto.setText("Monto: " + factura.getMonto());
+            holder.txtFecha.setText("Vencimiento: " + factura.getFechaVencimiento());
 
-        // Configurar listeners
-        holder.btnDescargar.setOnClickListener(v -> listener.onFacturaDescargarClick(factura));
-        holder.btnVerFactura.setOnClickListener(v -> listener.onFacturaVerClick(factura));
-        holder.btnPagar.setOnClickListener(v -> listener.onPagarClick(factura));
+            // BOTÓN DESCARGAR
+            holder.btnDescargar.setOnClickListener(v -> listener.onFacturaClick(factura, "descargar"));
+
+            // BOTÓN PAGAR SOLO SI LA FACTURA NO ESTÁ PAGA
+            if (esFacturaPaga) {
+                holder.btnPagar.setVisibility(View.GONE);
+            } else {
+                holder.btnPagar.setVisibility(View.VISIBLE);
+                holder.btnPagar.setOnClickListener(v -> listener.onFacturaClick(factura, "pagar"));
+            }
+        }
     }
 
     @Override
@@ -52,8 +60,8 @@ public class FacturaAdapter extends RecyclerView.Adapter<FacturaAdapter.FacturaV
 
     public static class FacturaViewHolder extends RecyclerView.ViewHolder {
         TextView txtCuenta, txtMonto, txtFecha;
-        ImageView btnDescargar; // Descargar es una imagen
-        Button btnVerFactura, btnPagar;
+        ImageView btnDescargar;
+        Button btnPagar;
 
         public FacturaViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -61,15 +69,7 @@ public class FacturaAdapter extends RecyclerView.Adapter<FacturaAdapter.FacturaV
             txtMonto = itemView.findViewById(R.id.txtMonto);
             txtFecha = itemView.findViewById(R.id.txtFecha);
             btnDescargar = itemView.findViewById(R.id.btnDescargar);
-            btnVerFactura = itemView.findViewById(R.id.btnVerFacturas);
             btnPagar = itemView.findViewById(R.id.btnPagar);
         }
     }
-
-    public interface OnFacturaClickListener {
-        void onFacturaDescargarClick(Factura factura);
-        void onFacturaVerClick(Factura factura);
-        void onPagarClick(Factura factura);
-    }
 }
-

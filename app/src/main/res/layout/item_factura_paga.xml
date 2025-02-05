@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp">
+
+    <!-- INFORMACIÓN DE FACTURA -->
+
+    <!-- BOTÓN DESCARGAR -->
+
+    <TextView
+        android:id="@+id/txtCuenta"
+        android:layout_width="288dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="8dp"
+        android:text="Número de Cuenta"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/btnDescargar"
+        app:layout_constraintHorizontal_bias="0.069"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtMonto"
+        android:layout_width="237dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="20dp"
+        android:text="Monto"
+        app:layout_constraintEnd_toStartOf="@+id/btnDescargar"
+        app:layout_constraintHorizontal_bias="0.031"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtCuenta" />
+
+    <TextView
+        android:id="@+id/txtFecha"
+        android:layout_width="242dp"
+        android:layout_height="16dp"
+        android:text="Fecha de Vencimiento"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnDescargar"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtMonto"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <!-- BOTÓN PAGAR (AHORA MÁS SEPARADO) -->
+    <ImageView
+        android:id="@+id/btnDescargar"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="4dp"
+        android:contentDescription="Descargar Factura"
+        android:src="@drawable/descargar"
+        app:layout_constraintBottom_toBottomOf="@+id/txtMonto"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnPagar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pagar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnDescargar"
+        app:layout_constraintVertical_bias="1.0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

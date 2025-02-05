@@ -19,7 +19,7 @@ public class ServicioActivity extends AppCompatActivity {
         Button btnFactura = findViewById(R.id.btnFactura);
         Button btnServicioTecnico = findViewById(R.id.btnServicioTecnico);
         ImageView btnLlamar = findViewById(R.id.btnLlamar);
-        ImageView btnBack = findViewById(R.id.btnBack); // Botón de retroceder
+        ImageView btnBack = findViewById(R.id.btnBack);
 
         // Acción del botón "Factura"
         btnFactura.setOnClickListener(v -> {
@@ -35,14 +35,14 @@ public class ServicioActivity extends AppCompatActivity {
 
         // Acción del botón de WhatsApp
         btnLlamar.setOnClickListener(v -> {
-            String phoneNumber = "5491123456789"; // Número de teléfono ficticio
+            String phoneNumber = "5491123456789"; // Número ficticio
             String whatsappUrl = "https://wa.me/" + phoneNumber;
             Intent intent = new Intent(Intent.ACTION_VIEW);
             intent.setData(Uri.parse(whatsappUrl));
             startActivity(intent);
         });
 
-        // Acción del botón de retroceder
+        // Acción del botón de retroceso
         btnBack.setOnClickListener(v -> finish());
     }
 }

@@ -3,7 +3,9 @@ package com.example.medisoft;
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
+import android.net.Network;
+import android.net.NetworkCapabilities;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -12,6 +14,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -63,8 +66,24 @@ public class RegisterActivity extends AppCompatActivity {
             Intent intent = new Intent(RegisterActivity.this, UserConfigActivity.class);
             startActivity(intent);
         });
+
+        // Manejar botón de retroceso correctamente en Android 13+
+        getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                new AlertDialog.Builder(RegisterActivity.this)
+                        .setTitle("Cancelar registro")
+                        .setMessage("¿Estás seguro de que quieres salir del registro?")
+                        .setPositiveButton("Sí", (dialog, which) -> finish())
+                        .setNegativeButton("No", null)
+                        .show();
+            }
+        });
     }
 
+    /**
+     * Valida los datos de entrada antes de registrar al usuario.
+     */
     private boolean validateInputs(String email, String password, String confirmPassword) {
         if (TextUtils.isEmpty(email)) {
             emailEditText.setError("Ingrese un correo electrónico");
@@ -85,11 +104,17 @@ public class RegisterActivity extends AppCompatActivity {
         return true;
     }
 
+    /**
+     * Verifica si la contraseña cumple con los requisitos de seguridad.
+     */
     private boolean isValidPassword(String password) {
         String passwordPattern = "^(?=.*[A-Z])(?=.*\\d)[A-Za-z\\d]{10,}$";
         return password.matches(passwordPattern);
     }
 
+    /**
+     * Registra un nuevo usuario en Firebase Authentication.
+     */
     private void registerUser(String email, String password) {
         firebaseAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, task -> {
@@ -120,6 +145,9 @@ public class RegisterActivity extends AppCompatActivity {
                 });
     }
 
+    /**
+     * Redirige a la pantalla de inicio de sesión después del registro.
+     */
     private void redirectToLogin() {
         firebaseAuth.signOut();
         Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
@@ -127,19 +155,30 @@ public class RegisterActivity extends AppCompatActivity {
         finish();
     }
 
+    /**
+     * ✅ Maneja la verificación de red para **todas las versiones** de Android.
+     */
     private boolean isNetworkAvailable() {
-        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
-    }
+        ConnectivityManager connectivityManager =
+                (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
 
-    @Override
-    public void onBackPressed() {
-        new AlertDialog.Builder(this)
-                .setTitle("Cancelar registro")
-                .setMessage("¿Estás seguro de que quieres salir del registro?")
-                .setPositiveButton("Sí", (dialog, which) -> super.onBackPressed())
-                .setNegativeButton("No", null)
-                .show();
+        if (connectivityManager != null) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                // ✅ API 23+ (Marshmallow y superior)
+                Network network = connectivityManager.getActiveNetwork();
+                if (network != null) {
+                    NetworkCapabilities capabilities = connectivityManager.getNetworkCapabilities(network);
+                    return capabilities != null &&
+                            (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) ||
+                                    capabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) ||
+                                    capabilities.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET));
+                }
+            } else {
+                // ✅ API 21 y 22 (Lollipop)
+                android.net.NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+                return networkInfo != null && networkInfo.isConnected();
+            }
+        }
+        return false;
     }
 }

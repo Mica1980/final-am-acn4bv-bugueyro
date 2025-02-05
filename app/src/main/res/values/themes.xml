@@ -1,10 +1,18 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.Medisoft" parent="Theme.Material3.DayNight.NoActionBar">
+    <!-- Base application theme -->
+    <style name="Base.Theme.Medisoft" parent="Theme.Material3.DayNight">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryVariant">@color/colorPrimaryGris</item>
         <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/colorPrimaryGris</item>
         <item name="colorOnSecondary">@color/black</item>
+
+        <!-- Fondo de pantalla -->
+        <item name="android:windowBackground">@color/white</item>
+
+        <!-- Desactiva la ActionBar si es necesario -->
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
     </style>
 
     <style name="Theme.Medisoft" parent="Base.Theme.Medisoft" />

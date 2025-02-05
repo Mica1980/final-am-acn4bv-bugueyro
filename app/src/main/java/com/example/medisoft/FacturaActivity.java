@@ -7,56 +7,64 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-public class FacturaActivity extends AppCompatActivity {
+import java.util.ArrayList;
+import java.util.List;
+
+public class FacturaActivity extends AppCompatActivity implements OnFacturaClickListener {
+    private RecyclerView recyclerView;
+    private FacturaAdapter adapter;
+    private List<Factura> facturaList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_factura);
 
-        // Botón de retroceso
+        // BOTÓN DE RETROCESO (FUNCIONANDO)
         ImageView btnBack = findViewById(R.id.btnBack);
         btnBack.setOnClickListener(v -> finish());
 
-        // Botón Descargar (como ImageView)
-        ImageView btnDescargar = findViewById(R.id.btnDescargar);
-        btnDescargar.setOnClickListener(v -> {
-            // Mostrar mensaje de descarga
-            Toast.makeText(this, "Descargando factura...", Toast.LENGTH_SHORT).show();
-        });
-
-        // Botón Ver Facturas
+        // BOTÓN PARA VER FACTURAS
         Button btnVerFacturas = findViewById(R.id.btnVerFacturas);
         btnVerFacturas.setOnClickListener(v -> {
-            // Navegar a VerFacturasActivity (corregido)
             Intent intent = new Intent(FacturaActivity.this, VerFacturasActivity.class);
             startActivity(intent);
         });
 
-        // Botón Ver Pagos
+        // BOTÓN PARA VER PAGOS
         Button btnVerPagos = findViewById(R.id.btnVerPagos);
         btnVerPagos.setOnClickListener(v -> {
-            // Navegar a FacturasPagasActivity (corregido)
             Intent intent = new Intent(FacturaActivity.this, FacturasPagasActivity.class);
             startActivity(intent);
         });
 
-        // Botón Pagar
-        Button btnPagar = findViewById(R.id.btnPagar);
-        btnPagar.setOnClickListener(v -> {
-            // Navegar a PagoActivity
-            Intent intent = new Intent(FacturaActivity.this, PagoActivity.class);
-            startActivity(intent);
-        });
+        // CONFIGURAR RECYCLERVIEW
+        recyclerView = findViewById(R.id.recyclerFacturas);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        // CARGAR FACTURAS DE EJEMPLO
+        facturaList = new ArrayList<>();
+        facturaList.add(new Factura("123456", "$100.000", "16/01/2024"));
+        facturaList.add(new Factura("789012", "$120.000", "01/02/2024"));
+
+        // CONFIGURAR ADAPTADOR (FACTURAS PENDIENTES → esFacturaPaga = false)
+        adapter = new FacturaAdapter(facturaList, this, false);
+        recyclerView.setAdapter(adapter);
+    }
+
+    @Override
+    public void onFacturaClick(Factura factura, String action) {
+        switch (action) {
+            case "descargar":
+                Toast.makeText(this, "Descargando factura: " + factura.getNombre(), Toast.LENGTH_SHORT).show();
+                break;
+            case "pagar":
+                Intent intentPagar = new Intent(this, PagoActivity.class);
+                startActivity(intentPagar);
+                break;
+        }
     }
 }
-
-
-
-
-
-
-
-
-
